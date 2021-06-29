@@ -131,8 +131,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\MenuPriority.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\ClipCurveEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Actions\TimelineAction.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TimelineClipHandle.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Actions\TrackActions.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TimelineClipHandle.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Items\MarkerItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Manipulators\AddDelete\AddDeleteItemModeMix.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Window\TimelineWindow.cs" />
@@ -154,8 +154,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Window\PlaybackScroller.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Utilities\Scopes\GUIGroupScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Utilities\AnimatedParameterUtility.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\PickerUtils.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Window\TimelineWindow_Manipulators.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\PickerUtils.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\inspectors\ClipInspector\ClipInspectorCurveEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Window\ViewModel\TimelineAssetViewModel.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Recording\TrackAssetRecordingExtensions.cs" />
@@ -225,8 +225,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\AnimationTrackActions.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Utilities\Graphics.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Recording\TimelineRecording_PlayableAsset.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TrackGui\InlineCurveEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Utilities\SpacePartitioner.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TrackGui\InlineCurveEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\inspectors\TimelineProjectSettings.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Trackhead.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\CurveTreeViewNode.cs" />
@@ -259,8 +259,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Manipulators\EditMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\Snapping\ISnappable.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\treeview\TimelineDataSource.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\AnimationOffsetMenu.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\CustomEditors\MarkerEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Animation\AnimationOffsetMenu.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Utilities\ClipModifier.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Signals\SignalReceiverHeader.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.5.5\Editor\Audio\AudioClipPropertiesDrawer.cs" />

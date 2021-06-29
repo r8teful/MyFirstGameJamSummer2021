@@ -59,9 +59,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Guard.cs" />
-    <Compile Include="Assets\Movement.cs" />
-    <Compile Include="Assets\LightController.cs" />
+    <Compile Include="Assets\Scripts\LightController.cs" />
+    <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\Guard.cs" />
+    <Compile Include="Assets\Scripts\CameraLight.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -624,6 +625,14 @@
       <Project>{D190905E-9642-2313-CF62-5746B244B00D}</Project>
       <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
+      <Project>{BAD7CE41-A952-675C-570E-E50E73C32371}</Project>
+      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
+      <Project>{8F212E01-B733-1260-367A-17265A7B1DF2}</Project>
+      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{050D0F49-F701-1136-2EB4-46AF51F217CC}</Project>
       <Name>Unity.Timeline</Name>
@@ -632,13 +641,21 @@
       <Project>{CFA600BA-CF79-89DB-3958-EEBB907CDF66}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
-      <Name>Unity.VisualScripting.Flow</Name>
+    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
+      <Project>{ABC1E4A3-7CBF-EBF1-FA01-C73F755D05FC}</Project>
+      <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{13A0EE4B-1D14-1371-62E5-6D75506CD9F2}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
+      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
+      <Name>Unity.VisualScripting.Flow</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
+      <Project>{74E7E2CF-5B0C-2FF1-4DB2-E9BC80AA6E48}</Project>
+      <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.csproj">
       <Project>{0198798B-BBFA-E135-E4D3-46399358FD31}</Project>
@@ -652,6 +669,10 @@
       <Project>{9AF0FB3A-50C1-E00D-B9DF-8213F0E3D904}</Project>
       <Name>Unity.2D.IK.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
+      <Project>{00B3961F-1107-9309-0654-1499CFD79759}</Project>
+      <Name>Unity.Postprocessing.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
       <Project>{14C54A8E-822B-3D1B-1306-F47204EB2C70}</Project>
       <Name>Unity.2D.Animation.Triangle.Runtime</Name>
@@ -659,6 +680,14 @@
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
       <Project>{3ACF0BCB-095C-45A3-E21C-CF13043BE58B}</Project>
       <Name>Unity.2D.Animation.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
+      <Project>{BBB91843-AC42-8AA5-A37A-8C57C82DFC30}</Project>
+      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
+      <Project>{A354644C-E3FE-DF3B-0DE2-6A0BAAFE988B}</Project>
+      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
       <Project>{7AF68D6C-0CAF-47DF-583F-66C09D1B42F1}</Project>
@@ -671,34 +700,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{5DD2635F-483B-DBAD-BC36-147C2A4468CB}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{00B3961F-1107-9309-0654-1499CFD79759}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{74E7E2CF-5B0C-2FF1-4DB2-E9BC80AA6E48}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
-      <Project>{BAD7CE41-A952-675C-570E-E50E73C32371}</Project>
-      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
-      <Project>{BBB91843-AC42-8AA5-A37A-8C57C82DFC30}</Project>
-      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
-      <Project>{ABC1E4A3-7CBF-EBF1-FA01-C73F755D05FC}</Project>
-      <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
-      <Project>{A354644C-E3FE-DF3B-0DE2-6A0BAAFE988B}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{8F212E01-B733-1260-367A-17265A7B1DF2}</Project>
-      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
