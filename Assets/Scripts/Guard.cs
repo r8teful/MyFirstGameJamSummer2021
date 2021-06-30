@@ -17,7 +17,7 @@ public class Guard : MonoBehaviour {
     public float lookSpeed;
     public float viewDistance;
     public LayerMask viewMask;
-    public Camer
+
     private void OnDrawGizmos() {
         Vector2 startPosition = pathHolder.GetChild(0).position;
         Vector2 previousPosition = startPosition;

@@ -61,8 +61,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LightController.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\CameraLight.cs" />
+    <Compile Include="Assets\Scripts\Guard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -737,10 +737,6 @@
       <Project>{5944B88A-B657-BB10-8454-08F81ABB0AA9}</Project>
       <Name>VSSettingsProvider</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{EDDFBAAA-8D92-7E5E-C8CF-EB6E2231E07B}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{328AD741-354B-28E4-37C7-8EBFBC63BE4A}</Project>
       <Name>UnityEditor.UI</Name>
@@ -788,10 +784,6 @@
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
       <Project>{D31C6242-8661-834E-2678-1AACD2616E3B}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{00B3961F-1107-9309-0654-1499CFD79759}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{F398A565-95CD-F402-F06F-674285335526}</Project>

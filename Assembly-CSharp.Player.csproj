@@ -61,8 +61,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LightController.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\CameraLight.cs" />
+    <Compile Include="Assets\Scripts\Guard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -668,10 +668,6 @@
     <ProjectReference Include="Unity.2D.IK.Runtime.csproj">
       <Project>{9AF0FB3A-50C1-E00D-B9DF-8213F0E3D904}</Project>
       <Name>Unity.2D.IK.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{00B3961F-1107-9309-0654-1499CFD79759}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
       <Project>{14C54A8E-822B-3D1B-1306-F47204EB2C70}</Project>

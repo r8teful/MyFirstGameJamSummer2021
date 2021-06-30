@@ -833,14 +833,6 @@
       <Project>{8F212E01-B733-1260-367A-17265A7B1DF2}</Project>
       <Name>Unity.RenderPipelines.Universal.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{00B3961F-1107-9309-0654-1499CFD79759}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{EDDFBAAA-8D92-7E5E-C8CF-EB6E2231E07B}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
       <Project>{74E7E2CF-5B0C-2FF1-4DB2-E9BC80AA6E48}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
