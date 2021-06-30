@@ -737,6 +737,10 @@
       <Project>{5944B88A-B657-BB10-8454-08F81ABB0AA9}</Project>
       <Name>VSSettingsProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
+      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
+      <Name>Unity.VisualScripting.Flow</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{328AD741-354B-28E4-37C7-8EBFBC63BE4A}</Project>
       <Name>UnityEditor.UI</Name>
@@ -761,9 +765,9 @@
       <Project>{0B176430-D760-AB1E-6EAB-914E9A3F0F65}</Project>
       <Name>Unity.2D.Tilemap.Extras.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
-      <Name>Unity.VisualScripting.Flow</Name>
+    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
+      <Project>{C38AFBAD-3008-60B4-1F5E-DD9B4BA7F82F}</Project>
+      <Name>Unity.InternalAPIEditorBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
       <Project>{74E7E2CF-5B0C-2FF1-4DB2-E9BC80AA6E48}</Project>
@@ -792,10 +796,6 @@
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
       <Project>{14C54A8E-822B-3D1B-1306-F47204EB2C70}</Project>
       <Name>Unity.2D.Animation.Triangle.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
-      <Project>{C38AFBAD-3008-60B4-1F5E-DD9B4BA7F82F}</Project>
-      <Name>Unity.InternalAPIEditorBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
       <Project>{3ACF0BCB-095C-45A3-E21C-CF13043BE58B}</Project>

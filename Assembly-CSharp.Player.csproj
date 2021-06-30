@@ -641,6 +641,10 @@
       <Project>{CFA600BA-CF79-89DB-3958-EEBB907CDF66}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
+      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
+      <Name>Unity.VisualScripting.Flow</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
       <Project>{ABC1E4A3-7CBF-EBF1-FA01-C73F755D05FC}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
@@ -648,10 +652,6 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{13A0EE4B-1D14-1371-62E5-6D75506CD9F2}</Project>
       <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{6FD87904-00E2-FF27-68F8-3BB388A3D890}</Project>
-      <Name>Unity.VisualScripting.Flow</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
       <Project>{74E7E2CF-5B0C-2FF1-4DB2-E9BC80AA6E48}</Project>

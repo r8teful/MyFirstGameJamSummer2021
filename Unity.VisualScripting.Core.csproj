@@ -398,9 +398,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\SerializedProperties\SerializedPropertyProviderAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Converters\fsArrayConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Unity\LudiqScriptableObject.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorAdaptiveWidthAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Events\MessageListeners\MonoBehaviourMessageListeners\UnityOnCollisionExitMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Machines\Machine.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorAdaptiveWidthAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Ensure\EnsureThat.Objects.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Serialization\ISerializationDepender.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Core\Variables\VariableKindAttribute.cs" />
