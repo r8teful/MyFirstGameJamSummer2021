@@ -354,9 +354,11 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Scripts/CameraLight.cs"
+"Assets/Scripts/GirdShadowCaster.cs"
 "Assets/Scripts/Guard.cs"
 "Assets/Scripts/LightController.cs"
 "Assets/Scripts/Movement.cs"
+"Assets/Scripts/Scenemanager.cs"
 -langversion:8.0
 
 /deterministic

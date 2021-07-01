@@ -63,6 +63,8 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\CameraLight.cs" />
     <Compile Include="Assets\Scripts\Guard.cs" />
+    <Compile Include="Assets\Scripts\GirdShadowCaster.cs" />
+    <Compile Include="Assets\Scripts\Scenemanager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

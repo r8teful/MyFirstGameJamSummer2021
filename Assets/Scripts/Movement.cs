@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour {
 
@@ -10,14 +11,20 @@ public class Movement : MonoBehaviour {
     private float angle;
     public float moveSpeed;
     public float turnSpeed;
+   // public bool fromPrevLevel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigidbody2D = GetComponent<Rigidbody2D>();    
+    void Start() {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        if (Scenemanager.Instance.loadPrevScene) {
+            if (SceneManager.GetActiveScene().buildIndex == 0) {
+                transform.position = new Vector2(9, 4);
+
+            }
+            Scenemanager.Instance.loadPrevScene = false;
+        }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         inputHor = Input.GetAxis("Horizontal");
@@ -31,5 +38,13 @@ public class Movement : MonoBehaviour {
         float targetAngle = Mathf.Atan2(inputDir.x, -inputDir.y) * Mathf.Rad2Deg;
         angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * turnSpeed * inputDir.magnitude);
         rigidbody2D.MoveRotation(angle);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("PrevLVL")) {
+            Scenemanager.Instance.LoadPrevLevel();
+        } else if (collision.CompareTag("NextLVL")) {
+            Scenemanager.Instance.LoadNextLevel();
+        }
     }
 }
