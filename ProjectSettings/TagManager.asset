@@ -7,6 +7,8 @@ TagManager:
   - GenerateShadowCasters
   - PrevLVL
   - NextLVL
+  - WalkGuard
+  - CameraGuard
   layers:
   - Default
   - TransparentFX

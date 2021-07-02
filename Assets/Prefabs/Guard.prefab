@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3847993458272940850}
   m_Layer: 0
   m_Name: Guard
-  m_TagString: Untagged
+  m_TagString: WalkGuard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41440
+  m_InstanceId: -1318
 --- !u!61 &3847993458272940850
 BoxCollider2D:
   m_ObjectHideFlags: 0

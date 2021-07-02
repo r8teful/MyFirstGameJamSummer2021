@@ -17,6 +17,7 @@ public class CameraGuard : MonoBehaviour
     public float lookSpeed;
     public float viewDistance;
     public LayerMask viewMask;
+    private bool shot;
 
     private void OnDrawGizmos() {
         Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -40,6 +41,10 @@ public class CameraGuard : MonoBehaviour
         StartCoroutine(LookTowards(waypoints[nextPoint]));
     }
 
+    public void Shot() {
+        shot = true;
+    }
+
     private void populateWayPoints() {
         for (int i = 0; i < pathHolder.childCount; i++) {
             waypoints.Add(pathHolder.GetChild(i).position);
@@ -47,7 +52,9 @@ public class CameraGuard : MonoBehaviour
     }
 
     void Update() {
-        if (!moving) {
+        if (shot) {
+            light.enabled = false;
+        } else if (!moving) {
             StartCoroutine(WaitForNextMove(waitTime));
         }
         if (CanSeePlayer()) {
@@ -55,7 +62,6 @@ public class CameraGuard : MonoBehaviour
         } else {
             light.color = Color.yellow;
         }
-
     }
 
     IEnumerator Move(Vector3 dest) {
@@ -76,7 +82,7 @@ public class CameraGuard : MonoBehaviour
         var lookDirection = (dest - transform.position).normalized;
         var lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, lookAngle)) > 0.1f) {
+        while ((Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, lookAngle)) > 0.1f) && !shot) {
             transform.eulerAngles = Vector3.forward * Mathf.MoveTowardsAngle(transform.eulerAngles.z, lookAngle, Time.deltaTime * lookSpeed);
             yield return null;
         }
@@ -98,3 +104,4 @@ public class CameraGuard : MonoBehaviour
     }
 
 }
+

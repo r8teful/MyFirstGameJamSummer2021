@@ -17,6 +17,7 @@ public class Guard : MonoBehaviour {
     public float lookSpeed;
     public float viewDistance;
     public LayerMask viewMask;
+    private bool shot;
 
     private void OnDrawGizmos() {
         Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -47,12 +48,13 @@ public class Guard : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) StopAllCoroutines();
         // Move the goard to the different waypoints, one after the other
-        if (!moving) {
+        if (!moving && !shot) {
             StartCoroutine(WaitForNextMove(waitTime));
         }
-        if (CanSeePlayer()) {
+        if (shot) {
+            light.enabled = false;
+        } else if (CanSeePlayer()) {
             light.color = Color.red;
         } else {
             light.color = Color.yellow;
@@ -61,7 +63,7 @@ public class Guard : MonoBehaviour {
     }
 
     IEnumerator Move(Vector3 dest) {
-        while (transform.position != dest) {
+        while ((transform.position != dest) && !shot) {
             transform.position = Vector2.MoveTowards(transform.position, dest, Time.deltaTime * moveSpeed);
             yield return null;
         }
@@ -82,7 +84,7 @@ public class Guard : MonoBehaviour {
         var lookDirection = (dest - transform.position).normalized;
         var lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, lookAngle)) > 0.1f) {
+        while ((Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, lookAngle)) > 0.1f)&& !shot) {
             transform.eulerAngles = Vector3.forward * Mathf.MoveTowardsAngle(transform.eulerAngles.z, lookAngle, Time.deltaTime * lookSpeed);
             yield return null;
         }
@@ -101,6 +103,14 @@ public class Guard : MonoBehaviour {
             
         }
         return false;
+    }
+
+    public void Shot() {
+        Debug.Log("OOF");
+        shot = true;
+        //StopCoroutine();
+       // StopCoroutine("Move");
+        //StopCoroutine("WaitForNextMove");
     }
    
 }
