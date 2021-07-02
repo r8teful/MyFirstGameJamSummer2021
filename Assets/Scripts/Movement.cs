@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
+    [SerializeField] private GameObject ammocount;
     private float inputHor;
     private float inputVer;
     private float angle;
     public float moveSpeed;
     public float turnSpeed;
-   // public bool fromPrevLevel;
+    public bool hasLazer;
+    // public bool fromPrevLevel;
 
     void Start() {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -19,7 +21,17 @@ public class Movement : MonoBehaviour {
             if (SceneManager.GetActiveScene().buildIndex == 0) {
                 transform.position = new Vector2(9, 4);
 
+            } else if (SceneManager.GetActiveScene().buildIndex == 1) {
+                transform.position = new Vector2(9, 4);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 2) {
+                transform.position = new Vector2(-10, 5);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 3) {
+                transform.position = new Vector2(9, 4);
+
             }
+
             Scenemanager.Instance.loadPrevScene = false;
         }
     }
@@ -45,6 +57,15 @@ public class Movement : MonoBehaviour {
             Scenemanager.Instance.LoadPrevLevel();
         } else if (collision.CompareTag("NextLVL")) {
             Scenemanager.Instance.LoadNextLevel();
+        } else if (collision.CompareTag("Lazer")) {
+            Destroy(collision.gameObject);
+            hasLazer = true;
+            ammocount.SetActive(true);
         }
+    }
+
+
+    public void AmmoUsed() {
+        ammocount.SetActive(false);
     }
 }

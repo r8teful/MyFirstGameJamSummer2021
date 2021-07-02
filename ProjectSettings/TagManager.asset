@@ -9,6 +9,7 @@ TagManager:
   - NextLVL
   - WalkGuard
   - CameraGuard
+  - Lazer
   layers:
   - Default
   - TransparentFX

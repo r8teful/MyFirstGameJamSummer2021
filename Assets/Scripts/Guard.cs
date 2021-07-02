@@ -20,15 +20,17 @@ public class Guard : MonoBehaviour {
     private bool shot;
 
     private void OnDrawGizmos() {
-        Vector2 startPosition = pathHolder.GetChild(0).position;
-        Vector2 previousPosition = startPosition;
-        foreach (Transform waypoint in pathHolder) {
-            Gizmos.DrawCube(waypoint.position, Vector3.one * .1f);
-            Gizmos.DrawLine(previousPosition, waypoint.position);
-            previousPosition = waypoint.position;
+        if (pathHolder!=null) {
+            Vector2 startPosition = pathHolder.GetChild(0).position;
+            Vector2 previousPosition = startPosition;
+            foreach (Transform waypoint in pathHolder) {
+                Gizmos.DrawCube(waypoint.position, Vector3.one * .1f);
+                Gizmos.DrawLine(previousPosition, waypoint.position);
+                previousPosition = waypoint.position;
+            }
+            Gizmos.DrawLine(previousPosition, startPosition);
+            Gizmos.DrawRay(transform.position, transform.right * viewDistance); 
         }
-        Gizmos.DrawLine(previousPosition, startPosition);
-        Gizmos.DrawRay(transform.position, transform.right*viewDistance);
     }
 
     void Start() {
@@ -36,9 +38,11 @@ public class Guard : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         waypoints = new List<Vector3>();
         viewAngle = light.pointLightInnerAngle;
+        if (pathHolder != null) {
         populateWayPoints();
         transform.position = waypoints[0];
         transform.LookAt(waypoints[0]);
+        }
     }
 
     private void populateWayPoints() {
@@ -49,7 +53,7 @@ public class Guard : MonoBehaviour {
 
     void Update() {
         // Move the goard to the different waypoints, one after the other
-        if (!moving && !shot) {
+        if (!moving && !shot && (pathHolder != null)) {
             StartCoroutine(WaitForNextMove(waitTime));
         }
         if (shot) {
