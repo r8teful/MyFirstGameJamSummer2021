@@ -18,16 +18,16 @@ public class Movement : MonoBehaviour {
     void Start() {
         rigidbody2D = GetComponent<Rigidbody2D>();
         if (Scenemanager.Instance.loadPrevScene) {
-            if (SceneManager.GetActiveScene().buildIndex == 0) {
-                transform.position = new Vector2(9, 4);
-
-            } else if (SceneManager.GetActiveScene().buildIndex == 1) {
+            if (SceneManager.GetActiveScene().buildIndex == 1) {
                 transform.position = new Vector2(9, 4);
 
             } else if (SceneManager.GetActiveScene().buildIndex == 2) {
-                transform.position = new Vector2(-10, 5);
+                transform.position = new Vector2(9, 4);
 
             } else if (SceneManager.GetActiveScene().buildIndex == 3) {
+                transform.position = new Vector2(-10, 5);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 4) {
                 transform.position = new Vector2(9, 4);
 
             }

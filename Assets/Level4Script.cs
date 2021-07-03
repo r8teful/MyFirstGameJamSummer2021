@@ -12,7 +12,6 @@ public class Level4Script : MonoBehaviour {
 
     private bool isactive;
 
-    // Start is called before the first frame update
     void Start()
     {
         popupText.gameObject.SetActive(false);
@@ -21,7 +20,6 @@ public class Level4Script : MonoBehaviour {
         StartCoroutine(flashingArrow());
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log(input);
