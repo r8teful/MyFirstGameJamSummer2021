@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class Guard : MonoBehaviour {
-
+    [SerializeField] RectTransform canvas;
     private Light2D light;
     public Transform pathHolder;
     private Transform player;
@@ -18,7 +18,8 @@ public class Guard : MonoBehaviour {
     public float viewDistance;
     public LayerMask viewMask;
     private bool shot;
-
+    private float seenTime;
+    
     private void OnDrawGizmos() {
         if (pathHolder!=null) {
             Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -51,7 +52,17 @@ public class Guard : MonoBehaviour {
         }
     }
 
+    private void FixedUpdate() {
+        
+    }
     void Update() {
+
+        canvas.localEulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
+
+
+        //canvas.eulerAngles =  Vector3.forward* Mathf.MoveTowardsAngle(canvas.eulerAngles.z, -transform.eulerAngles.z, Time.deltaTime * 400);
+        Debug.Log("MINUS transform.eulerAngles.z " + -transform.eulerAngles.z);
+        Debug.Log("transform.eulerAngles.z " + transform.eulerAngles.z);
         // Move the goard to the different waypoints, one after the other
         if (!moving && !shot && (pathHolder != null)) {
             StartCoroutine(WaitForNextMove(waitTime));
@@ -59,11 +70,19 @@ public class Guard : MonoBehaviour {
         if (shot) {
             light.enabled = false;
         } else if (CanSeePlayer()) {
+            
             light.color = Color.red;
+            seenTime += Time.deltaTime;
+            if (seenTime >= .1f) {
+                // Game over make animation 
+                Debug.Log("GameOver!!");
+
+                Time.timeScale = 0f;
+            }
         } else {
+            seenTime = 0;
             light.color = Color.yellow;
         }
-
     }
 
     IEnumerator Move(Vector3 dest) {
