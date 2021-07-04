@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WallObst
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 7482667652216324306, guid: 4a7b056fad80fd743972129c7746fe7d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.447, g: 0.447, b: 0.447, a: 1}
   m_Transform:
     e00: 1
     e01: 0
