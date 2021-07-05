@@ -19,7 +19,8 @@ public class Guard : MonoBehaviour {
     public LayerMask viewMask;
     private bool shot;
     private float seenTime;
-    
+    private bool gameover;
+    private Vector2 spottedPos;
     private void OnDrawGizmos() {
         if (pathHolder!=null) {
             Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -53,36 +54,41 @@ public class Guard : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        
+        if (Scenemanager.Instance.isSpotted) StopAllCoroutines();
     }
     void Update() {
-
-        canvas.localEulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
-
-
-        //canvas.eulerAngles =  Vector3.forward* Mathf.MoveTowardsAngle(canvas.eulerAngles.z, -transform.eulerAngles.z, Time.deltaTime * 400);
-        Debug.Log("MINUS transform.eulerAngles.z " + -transform.eulerAngles.z);
-        Debug.Log("transform.eulerAngles.z " + transform.eulerAngles.z);
-        // Move the goard to the different waypoints, one after the other
+        // Freeze the players position if they have been spotted
+        if (gameover)  player.position = spottedPos;
         if (!moving && !shot && (pathHolder != null)) {
             StartCoroutine(WaitForNextMove(waitTime));
         }
         if (shot) {
             light.enabled = false;
         } else if (CanSeePlayer()) {
-            
-            light.color = Color.red;
-            seenTime += Time.deltaTime;
-            if (seenTime >= .1f) {
-                // Game over make animation 
-                Debug.Log("GameOver!!");
+            if (seenTime < 0.1f) seenTime += Time.deltaTime;
+            UpdateColor();
+            if (seenTime >= .1f && !gameover) {
+                light.color = Color.red;
 
-                Time.timeScale = 0f;
+                spottedPos = player.position;
+
+                // Start animation
+               
+                canvas.gameObject.SetActive(true);
+                canvas.localEulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
+                gameover = true;
+                Scenemanager.Instance.isSpotted = true;
+                Scenemanager.Instance.gameObject.transform.position = spottedPos;
+                Scenemanager.Instance.PlayDeathAnimation();
             }
         } else {
             seenTime = 0;
-            light.color = Color.yellow;
+            UpdateColor();
         }
+    }
+
+    private void UpdateColor() {
+        light.color = new Color(1, 1 - seenTime * 10, 0);
     }
 
     IEnumerator Move(Vector3 dest) {

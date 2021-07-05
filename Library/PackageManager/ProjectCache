@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637606387846926807
-    m_Hash: 2514488261
+      ticks: 637610692023853581
+    m_Hash: 4245723995
   m_LockFileStatus:
     m_FilePath: D:/Programming/Unity/MyFirstGameJamSummer2021/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637606387847338060
-    m_Hash: 1194680482
+      ticks: 637610692024319665
+    m_Hash: 1749681845
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,60 @@ m_LocalPackages:
 m_ProjectPath: D:/Programming/Unity/MyFirstGameJamSummer2021/Packages
 m_EditorVersion: 2021.1.10f1 (b15f561b2cef)
 m_ResolvedPackages:
+- packageId: com.coffee.softmask-for-ugui@https://github.com/mob-sakai/SoftMaskForUGUI.git
+  testable: 0
+  isDirectDependency: 1
+  version: 1.0.0
+  source: 5
+  resolvedPath: D:\Programming\Unity\MyFirstGameJamSummer2021\Library\PackageCache\com.coffee.softmask-for-ugui@f59d147fe0
+  assetPath: Packages/com.coffee.softmask-for-ugui
+  name: com.coffee.softmask-for-ugui
+  displayName: UI Soft Mask
+  author:
+    name: mob-sakai
+    email: sakai861104@gmail.com
+    url: https://github.com/mob-sakai
+  category: 
+  type: 
+  description: 'UI Soft Mask is a smooth masking component for Unity UI (uGUI) elements.
+
+    By
+    using SoftMask instead of the default Mask component, you can beautifully represent
+    the rounded edges of UI elements.'
+  status: 4
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - ui
+  - softmask
+  registry:
+    id: 
+    name: 
+    url: 
+    scopes: []
+    isDefault: 0
+    capabilities: 0
+  hasRegistry: 0
+  hideInEditor: 1
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: git+https://github.com/mob-sakai/SoftMaskForUGUI.git
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
 - packageId: com.unity.2d.animation@6.0.3
   testable: 0
   isDirectDependency: 1

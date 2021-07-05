@@ -102,6 +102,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\AnimationLevelHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -909,6 +910,14 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{5DD2635F-483B-DBAD-BC36-147C2A4468CB}</Project>
       <Name>Unity.VisualScripting.State</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.Editor.csproj">
+      <Project>{9876AADF-2B4E-C502-E44D-302492FB5AEC}</Project>
+      <Name>Coffee.SoftMaskForUGUI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
+      <Project>{22590BB6-3D78-A3CC-166A-AC037B82439F}</Project>
+      <Name>Coffee.SoftMaskForUGUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
