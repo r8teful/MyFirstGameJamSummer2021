@@ -21,6 +21,8 @@ public class Guard : MonoBehaviour {
     private float seenTime;
     private bool gameover;
     private Vector2 spottedPos;
+    private float timeColided;
+    private SpriteRenderer guardSprite;
     private void OnDrawGizmos() {
         if (pathHolder!=null) {
             Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -36,6 +38,7 @@ public class Guard : MonoBehaviour {
     }
 
     void Start() {
+        guardSprite = GetComponent<SpriteRenderer>();
         light = GetComponentInChildren<Light2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         waypoints = new List<Vector3>();
@@ -64,6 +67,7 @@ public class Guard : MonoBehaviour {
         }
         if (shot) {
             light.enabled = false;
+            guardSprite.color = Color.black;
         } else if (CanSeePlayer()) {
             if (seenTime < 0.1f) seenTime += Time.deltaTime;
             UpdateColor();
@@ -133,7 +137,27 @@ public class Guard : MonoBehaviour {
         }
         return false;
     }
+    
+    private void OnCollisionStay2D(Collision2D collision) {
+       
+        // If you collided with another guard for to long, just turn it off
+        if(collision.gameObject.CompareTag("WalkGuard")) {
 
+            timeColided += Time.deltaTime;
+            guardSprite.color = new Color(1, 1- timeColided, 1- timeColided);
+            if (timeColided > 1) Shot();
+        }
+        Debug.Log(collision);
+    }
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("WalkGuard")) {
+            if (timeColided <= 1) {
+                // Not long enough colided
+                timeColided = 0;
+                guardSprite.color = new Color(1, 1, 1);
+            } 
+        }
+    }
     public void Shot() {
         Debug.Log("OOF");
         shot = true;

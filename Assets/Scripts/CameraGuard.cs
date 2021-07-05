@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CameraGuard : MonoBehaviour
 {
-
+    [SerializeField] RectTransform canvas;
     private Light2D light;
     public Transform pathHolder;
     private Transform player;
@@ -18,6 +18,8 @@ public class CameraGuard : MonoBehaviour
     public float viewDistance;
     public LayerMask viewMask;
     private bool shot;
+    private bool gameover;
+    private Vector3 spottedPos;
 
     private void OnDrawGizmos() {
         Vector2 startPosition = pathHolder.GetChild(0).position;
@@ -37,8 +39,10 @@ public class CameraGuard : MonoBehaviour
         waypoints = new List<Vector3>();
         viewAngle = light.pointLightInnerAngle;
         populateWayPoints();
-       // transform.LookAt(waypoints[0]);
+        // transform.LookAt(waypoints[0]);
         StartCoroutine(LookTowards(waypoints[nextPoint]));
+
+        light.color = Color.yellow;
     }
 
     public void Shot() {
@@ -52,15 +56,20 @@ public class CameraGuard : MonoBehaviour
     }
 
     void Update() {
+        if (Scenemanager.Instance.isSpotted) StopAllCoroutines();
+        if (gameover) player.position = spottedPos;
         if (shot) {
             light.enabled = false;
-        } else if (!moving) {
-            StartCoroutine(WaitForNextMove(waitTime));
-        }
-        if (CanSeePlayer()) {
+        } else if (CanSeePlayer() && !gameover) {
+            spottedPos = player.position;
             light.color = Color.red;
-        } else {
-            light.color = Color.yellow;
+            canvas.gameObject.SetActive(true);
+            gameover = true;
+            Scenemanager.Instance.isSpotted = true;
+            Scenemanager.Instance.PlayDeathAnimation();
+        }
+        if (!moving && !shot && (pathHolder != null)) {
+            StartCoroutine(WaitForNextMove(waitTime));
         }
     }
 

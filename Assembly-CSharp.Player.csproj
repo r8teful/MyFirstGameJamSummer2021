@@ -101,8 +101,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\AnimationLevelHandler.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -735,6 +735,10 @@
       <Project>{9AF0FB3A-50C1-E00D-B9DF-8213F0E3D904}</Project>
       <Name>Unity.2D.IK.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
+      <Project>{22590BB6-3D78-A3CC-166A-AC037B82439F}</Project>
+      <Name>Coffee.SoftMaskForUGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
       <Project>{14C54A8E-822B-3D1B-1306-F47204EB2C70}</Project>
       <Name>Unity.2D.Animation.Triangle.Runtime</Name>
@@ -762,10 +766,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{5DD2635F-483B-DBAD-BC36-147C2A4468CB}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
-      <Project>{22590BB6-3D78-A3CC-166A-AC037B82439F}</Project>
-      <Name>Coffee.SoftMaskForUGUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

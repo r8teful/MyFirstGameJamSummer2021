@@ -16,8 +16,13 @@ public class Movement : MonoBehaviour {
     // public bool fromPrevLevel;
 
     void Start() {
+        // BL -9,-4
+        // BR 9,-4
+        // TL -9,4
+        // TR 9,4
         rigidbody2D = GetComponent<Rigidbody2D>();
         if (Scenemanager.Instance.loadPrevScene) {
+
             if (SceneManager.GetActiveScene().buildIndex == 1) {
                 transform.position = new Vector2(9, 4);
 
@@ -25,9 +30,21 @@ public class Movement : MonoBehaviour {
                 transform.position = new Vector2(9, 4);
 
             } else if (SceneManager.GetActiveScene().buildIndex == 3) {
-                transform.position = new Vector2(-10, 5);
+                transform.position = new Vector2(-9, 4);
 
             } else if (SceneManager.GetActiveScene().buildIndex == 4) {
+                transform.position = new Vector2(-9, -4);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 5) {
+                transform.position = new Vector2(-10, 0);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 6) {
+                transform.position = new Vector2(-10, 0);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 7) {
+                transform.position = new Vector2(9, 4);
+
+            } else if (SceneManager.GetActiveScene().buildIndex == 8) {
                 transform.position = new Vector2(9, 4);
 
             }
@@ -54,7 +71,7 @@ public class Movement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("PrevLVL")) {
-            Scenemanager.Instance.LoadPrevLevel();
+           // Scenemanager.Instance.LoadPrevLevel();
         } else if (collision.CompareTag("NextLVL")) {
             Scenemanager.Instance.LoadNextLevel();
         } else if (collision.CompareTag("Lazer")) {

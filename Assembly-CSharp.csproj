@@ -101,8 +101,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\AnimationLevelHandler.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -723,6 +723,10 @@
       <Project>{4C0A6782-255A-8A55-8079-A3D343543D4E}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
     </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.Editor.csproj">
+      <Project>{9876AADF-2B4E-C502-E44D-302492FB5AEC}</Project>
+      <Name>Coffee.SoftMaskForUGUI.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
       <Project>{72A0DBBA-6963-ABE7-7B41-8B4249D9E97B}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
@@ -855,6 +859,10 @@
       <Project>{D31C6242-8661-834E-2678-1AACD2616E3B}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
+      <Project>{22590BB6-3D78-A3CC-166A-AC037B82439F}</Project>
+      <Name>Coffee.SoftMaskForUGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{F398A565-95CD-F402-F06F-674285335526}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
@@ -910,14 +918,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{5DD2635F-483B-DBAD-BC36-147C2A4468CB}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="Coffee.SoftMaskForUGUI.Editor.csproj">
-      <Project>{9876AADF-2B4E-C502-E44D-302492FB5AEC}</Project>
-      <Name>Coffee.SoftMaskForUGUI.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Coffee.SoftMaskForUGUI.csproj">
-      <Project>{22590BB6-3D78-A3CC-166A-AC037B82439F}</Project>
-      <Name>Coffee.SoftMaskForUGUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
