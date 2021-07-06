@@ -8,9 +8,11 @@ public class Level4Script : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI triangle;
     [SerializeField] private GameObject bean;
     [SerializeField] private GameObject image;
+    [SerializeField] private AudioSource pickupSound;
     private int input;
 
     private bool isactive;
+    private bool soundPlayed;
 
     void Start()
     {
@@ -22,8 +24,11 @@ public class Level4Script : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(input);
         if ((bean == null) && (input<3)) {
+            if(!soundPlayed) {
+                pickupSound.Play();
+                soundPlayed = true;
+            }
             popupText.text = "You picked up a lazer! With it you can disable guards";
             image.SetActive(true);
             popupText.gameObject.SetActive(true);

@@ -66,6 +66,7 @@ public class CameraGuard : MonoBehaviour
             canvas.gameObject.SetActive(true);
             gameover = true;
             Scenemanager.Instance.isSpotted = true;
+            Scenemanager.Instance.gameObject.transform.position = spottedPos;
             Scenemanager.Instance.PlayDeathAnimation();
         }
         if (!moving && !shot && (pathHolder != null)) {

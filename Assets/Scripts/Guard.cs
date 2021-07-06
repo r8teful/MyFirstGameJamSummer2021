@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Guard : MonoBehaviour {
     [SerializeField] RectTransform canvas;
     [SerializeField] ParticleSystem deathpParticles;
+    [SerializeField] AudioSource aboutToDie;
     private Light2D light;
     public Transform pathHolder;
     private Transform player;
@@ -61,6 +62,7 @@ public class Guard : MonoBehaviour {
         if (Scenemanager.Instance.isSpotted) StopAllCoroutines();
     }
     void Update() {
+        //Debug.Log(timeColided);
         // Freeze the players position if they have been spotted
         if (gameover)  player.position = spottedPos;
         if (shot) guardSprite.color = Color.black;
@@ -142,22 +144,31 @@ public class Guard : MonoBehaviour {
        
         // If you collided with another guard for to long, just turn it off
         if(collision.gameObject.CompareTag("WalkGuard")) {
-
+            
             timeColided += Time.deltaTime;
             guardSprite.color = new Color(1, 1- timeColided, 1- timeColided);
-            if ((timeColided > 1) && !shot) Shot();
+           
+            aboutToDie.pitch = timeColided * 10;
+            if ((timeColided > 1) && !shot) {
+                Shot();
+            } else if(!shot){
+                Debug.Log("haha get eared");
+                aboutToDie.Play();
+            }
+            
         }
     }
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("WalkGuard")) {
-            if (timeColided <= 1) {
-                // Not long enough colided
-                timeColided = 0;
-                guardSprite.color = new Color(1, 1, 1);
-            } 
-        }
+            StartCoroutine(SlowDownPitch());
+            //Debug.Log("hgekogke"+ timeColided);
+            // Not long enough colided gradually slow down the pitch
+        } 
     }
+    
     public void Shot() {
+        Scenemanager.Instance.PlayHitSound();
+        aboutToDie.Stop();
         shot = true;
         Debug.Log("OOF");
         light.enabled = false;
@@ -166,6 +177,15 @@ public class Guard : MonoBehaviour {
         //StopCoroutine();
        // StopCoroutine("Move");
         //StopCoroutine("WaitForNextMove");
+    }
+    IEnumerator SlowDownPitch() {
+        while (aboutToDie.pitch <= 10 && aboutToDie.pitch > 0 && !shot) {
+            aboutToDie.pitch -= (Time.deltaTime*10);
+            timeColided -= (Time.deltaTime * 10);
+            guardSprite.color = new Color(1, 1 - aboutToDie.pitch/10, 1 - aboutToDie.pitch/10);
+            yield return null;
+        }
+        timeColided = 0;
     }
    
 }

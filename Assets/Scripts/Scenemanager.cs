@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scenemanager : MonoBehaviour {
+    [SerializeField] AudioSource noticed;
+
+    [SerializeField] AudioSource hit;
     [SerializeField] Animator transitions;
     public static Scenemanager Instance;
     public bool loadPrevScene;
@@ -32,8 +35,13 @@ public class Scenemanager : MonoBehaviour {
     }
 
     internal void PlayDeathAnimation() {
+        noticed.Play();
         transitions.SetTrigger("Start");
     }
 
-    
+    internal void PlayHitSound() {
+        hit.Play();
+        Debug.Log("Playing Hit");
+    }
+
 }
