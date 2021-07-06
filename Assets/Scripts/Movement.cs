@@ -16,11 +16,12 @@ public class Movement : MonoBehaviour {
     // public bool fromPrevLevel;
 
     void Start() {
-        // BL -9,-4
-        // BR 9,-4
-        // TL -9,4
-        // TR 9,4
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        if (!hasLazer) ammocount.SetActive(false);
+         // BL -9,-4
+         // BR 9,-4
+         // TL -9,4
+         // TR 9,4
+         rigidbody2D = GetComponent<Rigidbody2D>();
         if (Scenemanager.Instance.loadPrevScene) {
 
             if (SceneManager.GetActiveScene().buildIndex == 1) {

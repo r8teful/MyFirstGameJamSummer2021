@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Guard : MonoBehaviour {
     [SerializeField] RectTransform canvas;
+    [SerializeField] ParticleSystem deathpParticles;
     private Light2D light;
     public Transform pathHolder;
     private Transform player;
@@ -62,12 +63,9 @@ public class Guard : MonoBehaviour {
     void Update() {
         // Freeze the players position if they have been spotted
         if (gameover)  player.position = spottedPos;
+        if (shot) guardSprite.color = Color.black;
         if (!moving && !shot && (pathHolder != null)) {
             StartCoroutine(WaitForNextMove(waitTime));
-        }
-        if (shot) {
-            light.enabled = false;
-            guardSprite.color = Color.black;
         } else if (CanSeePlayer()) {
             if (seenTime < 0.1f) seenTime += Time.deltaTime;
             UpdateColor();
@@ -125,15 +123,17 @@ public class Guard : MonoBehaviour {
     }
 
     private bool CanSeePlayer() {
-       if(Vector2.Distance(transform.position,player.position) < viewDistance) {
-            var dirToPlayer = (player.position - transform.position).normalized;
-            var angleBetweenGuardAndPlayer = Vector2.Angle(transform.right, dirToPlayer);
-            if (angleBetweenGuardAndPlayer < viewAngle/2f) {
-                if (!Physics2D.Linecast(transform.position,player.position, viewMask)) {
-                    return true;
+        if (!shot) {
+            if (Vector2.Distance(transform.position, player.position) < viewDistance) {
+                var dirToPlayer = (player.position - transform.position).normalized;
+                var angleBetweenGuardAndPlayer = Vector2.Angle(transform.right, dirToPlayer);
+                if (angleBetweenGuardAndPlayer < viewAngle / 2f) {
+                    if (!Physics2D.Linecast(transform.position, player.position, viewMask)) {
+                        return true;
+                    }
                 }
-            }
-            
+
+            } 
         }
         return false;
     }
@@ -145,9 +145,8 @@ public class Guard : MonoBehaviour {
 
             timeColided += Time.deltaTime;
             guardSprite.color = new Color(1, 1- timeColided, 1- timeColided);
-            if (timeColided > 1) Shot();
+            if ((timeColided > 1) && !shot) Shot();
         }
-        Debug.Log(collision);
     }
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("WalkGuard")) {
@@ -159,8 +158,11 @@ public class Guard : MonoBehaviour {
         }
     }
     public void Shot() {
-        Debug.Log("OOF");
         shot = true;
+        Debug.Log("OOF");
+        light.enabled = false;
+        
+        deathpParticles.Play();
         //StopCoroutine();
        // StopCoroutine("Move");
         //StopCoroutine("WaitForNextMove");
