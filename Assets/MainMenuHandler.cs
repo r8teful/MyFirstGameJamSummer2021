@@ -3,32 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class MainMenuHandler : MonoBehaviour{
 
-    [SerializeField] private GameObject playTextSelect;
-    [SerializeField] private GameObject settingTextSelect;
-    private bool overwrite;
+    [SerializeField]private Slider musicSlider;
+    [SerializeField] private Slider FXSlider;
 
-
-    void Start()
-    {
-
-        settingTextSelect.SetActive(false);
+    public void OnSliderMusicChanged() {
+        Scenemanager.Instance.SetMusicVolume(musicSlider.value);
     }
+    public void OnSliderFXChanged() {
 
-
-    void FixedUpdate()
-    {
-        Debug.Log(EventSystem.current);
-        if ((EventSystem.current.currentSelectedGameObject != null) && EventSystem.current.currentSelectedGameObject.CompareTag("NextLVL") && !overwrite) {
-            // Try Again selected
-            playTextSelect.SetActive(true);
-            settingTextSelect.SetActive(false);
-        } else if (EventSystem.current.currentSelectedGameObject.CompareTag("PrevLVL")) {
-            playTextSelect.SetActive(false);
-            settingTextSelect.SetActive(true);
-        }
+        Scenemanager.Instance.PlayHitSound();
+        Scenemanager.Instance.SetFXVolume(FXSlider.value);
     }
-
 }

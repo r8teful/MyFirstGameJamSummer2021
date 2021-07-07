@@ -153,6 +153,7 @@ public class Guard : MonoBehaviour {
                 Shot();
             } else if(!shot){
                 Debug.Log("haha get eared");
+                aboutToDie.volume = Scenemanager.Instance.GetFXVolume();
                 aboutToDie.Play();
             }
             
