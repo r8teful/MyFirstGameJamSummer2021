@@ -86,7 +86,7 @@ public class GirdShadowCaster  : MonoBehaviour {
 
                         // create new shadowCasterPrefab instance
 
-                        currentInstance = (GameObject)PrefabUtility.InstantiatePrefab(shadowCasterPrefab, shadowCastersContainer);
+                        //currentInstance = (GameObject)PrefabUtility.InstantiatePrefab(shadowCasterPrefab, shadowCastersContainer);
                         currentInstance.transform.position = new Vector3(bottomLeft.x + x + 0.5f, bottomLeft.y + y + 0.5f, 0.0f);
                     } else {
 
@@ -169,7 +169,7 @@ public class GirdShadowCaster  : MonoBehaviour {
         return false;
     }
 }
-
+/*
 [CustomEditor(typeof(GirdShadowCaster))]
 public class GridShadowCastersGeneratorEditor : Editor {
 
@@ -192,4 +192,4 @@ public class GridShadowCastersGeneratorEditor : Editor {
             }
         }
     }
-}
+*/

@@ -18,4 +18,11 @@ public class MainMenuHandler : MonoBehaviour{
         Scenemanager.Instance.PlayHitSound();
         Scenemanager.Instance.SetFXVolume(FXSlider.value);
     }
+    public void onURLCLick() {
+        Application.OpenURL("https://youtube.com/user/r8teful");
+    }
+
+    public void OnPlayClicked() {
+        Scenemanager.Instance.LoadNextLevel();
+    }
 }

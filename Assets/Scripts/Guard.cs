@@ -152,7 +152,6 @@ public class Guard : MonoBehaviour {
             if ((timeColided > 1) && !shot) {
                 Shot();
             } else if(!shot){
-                Debug.Log("haha get eared");
                 aboutToDie.volume = Scenemanager.Instance.GetFXVolume();
                 aboutToDie.Play();
             }
@@ -162,8 +161,6 @@ public class Guard : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("WalkGuard")) {
             StartCoroutine(SlowDownPitch());
-            //Debug.Log("hgekogke"+ timeColided);
-            // Not long enough colided gradually slow down the pitch
         } 
     }
     
@@ -171,13 +168,8 @@ public class Guard : MonoBehaviour {
         Scenemanager.Instance.PlayHitSound();
         aboutToDie.Stop();
         shot = true;
-        Debug.Log("OOF");
         light.enabled = false;
-        
         deathpParticles.Play();
-        //StopCoroutine();
-       // StopCoroutine("Move");
-        //StopCoroutine("WaitForNextMove");
     }
     IEnumerator SlowDownPitch() {
         while (aboutToDie.pitch <= 10 && aboutToDie.pitch > 0 && !shot) {

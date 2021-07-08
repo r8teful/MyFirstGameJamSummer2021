@@ -16,6 +16,9 @@ public class EndMenu : MonoBehaviour
         
     }
     public void onClick() {
-        Debug.Log("YEAH");
+        Scenemanager.Instance.LoadMainMenu();
+    }
+    public void onURLCLick() {
+        Application.OpenURL("https://youtube.com/user/r8teful");
     }
 }

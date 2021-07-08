@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CameraGuard : MonoBehaviour
 {
     [SerializeField] RectTransform canvas;
+    [SerializeField] ParticleSystem deathpParticles;
     private Light2D light;
     public Transform pathHolder;
     private Transform player;
@@ -39,14 +40,14 @@ public class CameraGuard : MonoBehaviour
         waypoints = new List<Vector3>();
         viewAngle = light.pointLightInnerAngle;
         populateWayPoints();
-        // transform.LookAt(waypoints[0]);
         StartCoroutine(LookTowards(waypoints[nextPoint]));
-
         light.color = Color.yellow;
     }
 
     public void Shot() {
         shot = true;
+        Scenemanager.Instance.PlayHitSound();
+        deathpParticles.Play();
     }
 
     private void populateWayPoints() {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scenemanager : MonoBehaviour {
     [SerializeField] private AudioSource noticed;
-
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private AudioSource music;
     [SerializeField] private AudioSource hit;
     [SerializeField] private Animator transitions;
@@ -32,6 +32,19 @@ public class Scenemanager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+    }
+    private void Start() {
+        fxVolume = 1;
+    }
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+            if (pauseMenu.activeInHierarchy) {
+                Time.timeScale = 0;
+            } else {
+                Time.timeScale = 1;
+            }
+        }    
     }
     public void RestartLevel() {
         isSpotted = false;
@@ -60,6 +73,10 @@ public class Scenemanager : MonoBehaviour {
     }
 
     public void LoadMainMenu() {
+        if(pauseMenu.activeInHierarchy) {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(0);
     }
 }

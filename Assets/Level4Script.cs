@@ -26,6 +26,7 @@ public class Level4Script : MonoBehaviour {
     {
         if ((bean == null) && (input<3)) {
             if(!soundPlayed) {
+                pickupSound.volume = Scenemanager.Instance.GetFXVolume();
                 pickupSound.Play();
                 soundPlayed = true;
             }
