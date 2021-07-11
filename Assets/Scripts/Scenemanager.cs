@@ -10,7 +10,6 @@ public class Scenemanager : MonoBehaviour {
     [SerializeField] private AudioSource hit;
     [SerializeField] private Animator transitions;
     public static Scenemanager Instance;
-    public bool loadPrevScene;
     public bool isSpotted;
     private float fxVolume;
     public void SetFXVolume(float value) {
@@ -55,10 +54,7 @@ public class Scenemanager : MonoBehaviour {
     }
 
     public void LoadPrevLevel() {
-        Debug.Log("Current scene is" + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Debug.Log("Current scene is" + SceneManager.GetActiveScene().buildIndex);
-        loadPrevScene = true;
     }
 
     internal void PlayDeathAnimation() {
@@ -69,7 +65,6 @@ public class Scenemanager : MonoBehaviour {
     internal void PlayHitSound() {
         if (!hit.isPlaying)
         hit.Play();
-        Debug.Log("Playing Hit");
     }
 
     public void LoadMainMenu() {

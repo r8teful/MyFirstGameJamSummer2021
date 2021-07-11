@@ -62,7 +62,6 @@ public class Guard : MonoBehaviour {
         if (Scenemanager.Instance.isSpotted) StopAllCoroutines();
     }
     void Update() {
-        //Debug.Log(timeColided);
         // Freeze the players position if they have been spotted
         if (gameover)  player.position = spottedPos;
         if (shot) guardSprite.color = Color.black;
@@ -77,7 +76,6 @@ public class Guard : MonoBehaviour {
                 spottedPos = player.position;
 
                 // Start animation
-               
                 canvas.gameObject.SetActive(true);
                 canvas.localEulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
                 gameover = true;
